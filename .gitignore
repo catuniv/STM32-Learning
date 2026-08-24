@@ -53,3 +53,21 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# STM32CubeIDE build directories
+Debug/
+Release/
+
+# STM32CubeIDE workspace metadata
+.metadata/
+
+# macOS
+.DS_Store
+
+# VS Code local settings
+.vscode/
+
+# STM32CubeIDE launch configurations
+*.launch
+
+.vscode/
