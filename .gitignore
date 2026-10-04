@@ -71,3 +71,6 @@ Release/
 *.launch
 
 .vscode/
+
+# STM32CubeIDE SFR debug settings
+*.sfrview.prefs
