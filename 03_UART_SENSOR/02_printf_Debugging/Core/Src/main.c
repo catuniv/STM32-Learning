@@ -21,8 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,7 +44,7 @@
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-
+uint8_t rxData;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -58,9 +58,12 @@ static void MX_USART2_UART_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 int __io_putchar(int ch)
+
 {
-	HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
-	return ch;
+
+    HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+
+    return ch;
 
 }
 /* USER CODE END 0 */
@@ -96,8 +99,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  int distance = 35;
-  printf("Distance = %d cm\r\n", distance);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -105,7 +107,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  HAL_UART_Receive(&huart2, &rxData, 1, HAL_MAX_DELAY);
 
+	  printf("Received: %c\r\n", rxData);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
