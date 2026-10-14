@@ -95,12 +95,17 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
-	  	      HAL_Delay(100);
+	  // LOW Trigger → ON
 
-	  	      HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_RESET);
-	  	      HAL_Delay(1000);
-    /* USER CODE BEGIN 3 */
+	      HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_RESET);
+
+	      HAL_Delay(300);
+
+	      // HIGH → OFF
+
+	      HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
+
+	      HAL_Delay(500);    /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
